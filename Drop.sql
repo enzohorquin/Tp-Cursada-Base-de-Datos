@@ -1,0 +1,63 @@
+﻿drop trigger if exists TR_GR08_chk_rol_cliente on GR08_CLIENTE;
+drop trigger if exists TR_GR08_chk_rol_empleado on GR08_EMPLEADO;
+drop trigger if exists TR_GR08_chk_saldo_correcto on GR08_CLIENTE;
+drop trigger if exists TR_GR08_chk_deny_update_saldo on GR08_CLIENTE;
+drop trigger if exists TR_GR08_COMPROBANTE_SINL_TURNO_insert_recibo on GR08_COMPROBANTE_SINL_TURNO;
+drop trigger if exists TR_GR08_LINEA_COMPROBANTE_chk_cant_linea_comp on GR08_LINEA_COMPROBANTE;
+drop trigger if exists TR_GR08_LINEA_COMPROBANTE_chk_insert_linea on GR08_LINEA_COMPROBANTE;
+drop trigger if exists TR_GR08_LINEA_COMPROBANTE_chk_update_linea on GR08_LINEA_COMPROBANTE;
+drop trigger if exists TR_GR08_LINEA_COMPROBANTE_chk_delete_linea on GR08_LINEA_COMPROBANTE;
+drop trigger if exists TR_GR08_PERSONA_chk_update_estado_cliente on GR08_PERSONA;
+drop trigger if exists TR_GR08_VISTA_CLIENTE_PERSONA on GR08_VISTA_CLIENTES;
+drop trigger if exists TR_GR08_PERSONA_EMPLEADO_insercion_persona_empleado on GR08_VISTA_EMPLEADO;
+drop trigger if exists TR_GR08_COMPROBANTE_chk_suma_importes_linea on GR08_VISTA_EMPLEADO;
+drop trigger if exists TR_GR08_COMPROBANTE_SINL_delete_recibo on GR08_COMPROBANTE_SINL;
+drop trigger if exists TR_GR08_PERSONA_CLIENTE_actualizacion_persona_cliente on GR08_VISTA_CLIENTES;
+drop trigger if exists TR_GR08_actualizacion_persona_empleado on GR08_VISTA_EMPLEADO;
+
+drop table if exists GR08_CLIENTE cascade;
+drop table if exists GR08_COMPROBANTE cascade;
+drop table if exists GR08_COMPROBANTE_CONL cascade;
+drop table if exists GR08_COMPROBANTE_SINL cascade;
+drop table if exists GR08_COMPROBANTE_SINL_TURNO cascade;
+drop table if exists GR08_DIRECCION cascade;
+drop table if exists GR08_EMPLEADO cascade;
+drop table if exists GR08_EQUIPO cascade;
+drop table if exists GR08_LINEA_COMPROBANTE cascade;
+drop table if exists GR08_PERSONA cascade;
+drop table if exists GR08_SERVICIO cascade;
+drop table if exists GR08_TIPO_COMPROBANTE cascade;
+drop table if exists GR08_TURNO cascade;
+
+drop domain if exists DOM_GR08_rolvalido;
+drop domain if exists DOM_GR08_fechavalida;
+drop domain if exists DOM_GR08_pisovalido;
+drop domain if exists DOM_GR08_tcompvalido;
+
+drop sequence if exists seq_factura; 
+drop sequence if exists seq_remito; 
+drop sequence if exists seq_recibo; 
+
+drop view if exists GR08_VISTA_COMPROBANTES_CL;
+drop view if exists GR08_VISTA_CLIENTES;
+drop view if exists GR08_VISTA_EMPLEADO;
+drop view if exists GR08_VISTA_DEUDORES;
+
+drop function if exists TRFN_GR08_chk_rol_cliente();
+drop function if exists TRFN_GR08_chk_rol_empleado();
+drop function if exists TRFN_GR08_chk_saldo_correcto();
+drop function if exists TRFN_GR08_chk_deny_update_saldo();
+drop function if exists FN_GR08_modificar_saldo_cliente(numeric, integer, bigint);
+drop function if exists TRFN_GR08_insert_recibo();
+drop function if exists TRFN_GR08_delete_recibo();
+drop function if exists TRFN_GR08_chequear_lineas();
+drop function if exists TRFN_GR08_chequear_insert_lc();
+drop function if exists TRFN_GR08_chequear_update_lc();
+drop function if exists TRFN_GR08_chequear_delete_lc();
+drop function if exists TRFN_GR08_chk_update_estado_cliente();
+drop function if exists PR_GR08_generar_facturas();
+drop function if exists TRFN_GR08_insercion_persona_cliente();
+drop function if exists TRFN_GR08_insercion_persona_empleado();
+drop function if exists TRFN_GR08_comprobante_chk_suma_importes_linea();
+drop function if exists TRFN_GR08_actualizacion_persona_cliente();
+drop function if exists TRFN_GR08_actualizacion_persona_empleado();
